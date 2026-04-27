@@ -1,9 +1,7 @@
 extends CharacterBody2D
 
-const time_in_timer = 0.7
+const time_in_timer = 0.9
 var move_up_released = false
-var fly_time = 0
-const max_fly_time = 35
 const SPEED = 600.0
 const JUMP_VELOCITY = -300.0
 var timer_started = false
@@ -23,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_pressed("move_up") and not move_up_released and (is_on_floor() or $Timer.time_left > 0):
-		velocity.y = JUMP_VELOCITY 
+		velocity.y = JUMP_VELOCITY - $Timer.time_left * 150
 		#print($Timer.time_left)
 	
 	if Input.is_action_just_released("move_up") and not is_on_floor():
@@ -49,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	
+	 
 
 func create_collision():
 	var collision = CollisionShape2D.new()
