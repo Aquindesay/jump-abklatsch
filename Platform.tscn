@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d2hph8jdcvny6"]
+
+[ext_resource type="Script" uid="uid://onegwrbj61mc" path="res://platform.gd" id="1_ibub6"]
+
+[node name="Platform" type="StaticBody2D" unique_id=2130187610]
+script = ExtResource("1_ibub6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1786915774]
+offset_right = 314.0
+offset_bottom = 40.0

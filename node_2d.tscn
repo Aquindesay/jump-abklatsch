@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://2kjco7a0cx45"]
+
+[ext_resource type="Texture2D" uid="uid://r1s7xcw332jh" path="res://icon.svg" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dq28e1yvgpa1e" path="res://icon2.svg" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://cnk33uglaq270" path="res://character_body_2d.gd" id="2_epypp"]
+[ext_resource type="Script" uid="uid://bcvg2lsro7vf2" path="res://ground.gd" id="4_0hol4"]
+[ext_resource type="PackedScene" uid="uid://d2hph8jdcvny6" path="res://Platform.tscn" id="5_q6r6c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epypp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wtcfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0e48y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q6r6c"]
+normal = Vector2(-1, 0)
+
+[node name="Node2D" type="Node2D" unique_id=1916239021]
+metadata/_edit_horizontal_guides_ = [-261.0, 648.0]
+metadata/_edit_vertical_guides_ = [1150.0]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1371185577]
+script = ExtResource("2_epypp")
+
+[node name="PlayerPic" type="AnimatedSprite2D" parent="Player" unique_id=1658328045]
+position = Vector2(573, 327)
+sprite_frames = SubResource("SpriteFrames_epypp")
+autoplay = "default"
+frame_progress = 0.0971046
+speed_scale = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=592378661]
+position = Vector2(497, 276)
+limit_left = 0
+limit_right = 1150
+limit_bottom = 550
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=487752536]
+position = Vector2(-107, -8)
+physics_material_override = SubResource("PhysicsMaterial_epypp")
+script = ExtResource("4_0hol4")
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=2116882572]
+offset_left = 75.0
+offset_top = 500.0
+offset_right = 1276.0
+offset_bottom = 600.0
+
+[node name="WorldBoarderLeft" type="StaticBody2D" parent="." unique_id=1897074299]
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBoarderLeft" unique_id=1481714202]
+position = Vector2(0, 1)
+shape = SubResource("WorldBoundaryShape2D_0hol4")
+
+[node name="CollisionShape2D2Right" type="CollisionShape2D" parent="WorldBoarderLeft" unique_id=65994222]
+position = Vector2(1150, 0)
+shape = SubResource("WorldBoundaryShape2D_q6r6c")
+
+[node name="Platform" parent="." unique_id=134081518 instance=ExtResource("5_q6r6c")]
+position = Vector2(153, 197)
+
+[node name="Platform2" parent="." unique_id=2130187610 instance=ExtResource("5_q6r6c")]
+position = Vector2(604, 96)
+
+[node name="Platform3" parent="." unique_id=1769944276 instance=ExtResource("5_q6r6c")]
+position = Vector2(548, -948)
+
+[node name="Platform4" parent="." unique_id=314983135 instance=ExtResource("5_q6r6c")]
+position = Vector2(109, -730)
+
+[node name="Platform5" parent="." unique_id=1583342965 instance=ExtResource("5_q6r6c")]
+position = Vector2(327, -262)
+
+[node name="Platform6" parent="." unique_id=1085166333 instance=ExtResource("5_q6r6c")]
+position = Vector2(451, -506)
+
+[node name="Platform7" parent="." unique_id=2049461228 instance=ExtResource("5_q6r6c")]
+position = Vector2(111, -18)
