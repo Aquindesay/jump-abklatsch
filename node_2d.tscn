@@ -20,6 +20,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="GDScript" id="GDScript_q6r6c"]
+script/source = "extends Timer
+
+func _on_timer_timeout():
+	print(\"Nachricht: Ich bin fertig!\")
+"
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0hol4"]
@@ -29,7 +36,7 @@ normal = Vector2(1, 0)
 normal = Vector2(-1, 0)
 
 [node name="Node2D" type="Node2D" unique_id=1916239021]
-metadata/_edit_horizontal_guides_ = [-261.0, 648.0]
+metadata/_edit_horizontal_guides_ = [648.0]
 metadata/_edit_vertical_guides_ = [1150.0]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1371185577]
@@ -47,6 +54,9 @@ position = Vector2(497, 276)
 limit_left = 0
 limit_right = 1150
 limit_bottom = 550
+
+[node name="Timer" type="Timer" parent="Player" unique_id=1494068676]
+script = SubResource("GDScript_q6r6c")
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=487752536]
 position = Vector2(-107, -8)
@@ -79,7 +89,7 @@ position = Vector2(604, 96)
 position = Vector2(548, -948)
 
 [node name="Platform4" parent="." unique_id=314983135 instance=ExtResource("5_q6r6c")]
-position = Vector2(109, -730)
+position = Vector2(112, -750)
 
 [node name="Platform5" parent="." unique_id=1583342965 instance=ExtResource("5_q6r6c")]
 position = Vector2(327, -262)
